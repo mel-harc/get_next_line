@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mel-harc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/12 20:30:48 by mel-harc          #+#    #+#             */
-/*   Updated: 2022/11/15 12:34:43 by mel-harc         ###   ########.fr       */
+/*   Created: 2022/11/15 12:49:25 by mel-harc          #+#    #+#             */
+/*   Updated: 2022/11/15 13:06:32 by mel-harc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 static char	*ft_free(char *str, char *buff)
 {
@@ -90,19 +90,19 @@ static char	*ft_update_data(char *str)
 
 char	*get_next_line(int fd)
 {
-	static char		*str;
+	static char		*str[1024];
 	char			*line;
 
 	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, &line, 0) < 0)
 		return (NULL);
-	if (!str)
-		str = ft_strdup("");
-	if (!str)
+	if (!str[fd])
+		str[fd] = ft_strdup("");
+	if (!str[fd])
 		return (NULL);
-	str = ft_read(fd, str);
-	if (!str)
+	str[fd] = ft_read(fd, str[fd]);
+	if (!str[fd])
 		return (NULL);
-	line = ft_get_line(str);
-	str = ft_update_data(str);
+	line = ft_get_line(str[fd]);
+	str[fd] = ft_update_data(str[fd]);
 	return (line);
 }
