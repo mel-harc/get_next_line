@@ -6,7 +6,7 @@
 /*   By: mel-harc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 12:54:44 by mel-harc          #+#    #+#             */
-/*   Updated: 2022/11/15 12:55:04 by mel-harc         ###   ########.fr       */
+/*   Updated: 2022/11/16 09:13:11 by mel-harc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,8 @@ char	*ft_strdup(const char *s1)
 	int		i;
 	char	*src;
 
+	if (!s1)
+		return (NULL);
 	i = 0;
 	while (s1[i] != '\0')
 		i++;

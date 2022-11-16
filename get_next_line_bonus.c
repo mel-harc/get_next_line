@@ -90,7 +90,7 @@ static char	*ft_update_data(char *str)
 
 char	*get_next_line(int fd)
 {
-	static char		*str[1024];
+	static char		*str[OPEN_MAX];
 	char			*line;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)

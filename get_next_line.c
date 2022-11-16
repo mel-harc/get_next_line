@@ -6,11 +6,12 @@
 /*   By: mel-harc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 20:30:48 by mel-harc          #+#    #+#             */
-/*   Updated: 2022/11/16 08:32:31 by mel-harc         ###   ########.fr       */
+/*   Updated: 2022/11/16 08:59:50 by mel-harc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+
 
 static char	*ft_free(char *str, char *buff)
 {
