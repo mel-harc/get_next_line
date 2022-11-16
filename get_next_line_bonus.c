@@ -6,7 +6,7 @@
 /*   By: mel-harc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 12:49:25 by mel-harc          #+#    #+#             */
-/*   Updated: 2022/11/15 13:06:32 by mel-harc         ###   ########.fr       */
+/*   Updated: 2022/11/16 08:31:10 by mel-harc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,11 @@ static char	*ft_read(int fd, char *str)
 	{
 		nb = read(fd, buff, BUFFER_SIZE);
 		if (nb <= 0 && !*str)
-			return (ft_free(str, buff));
+			return (str = ft_free(str, buff));
 		else if (nb == 0 && *str != '\0')
 			break ;
 		else if (nb == -1 && *str != '\0')
-			return (ft_free(str, buff));
+			return (str = ft_free(str, buff));
 		buff[nb] = '\0';
 		str = ft_strjoin(str, buff);
 		if (!str)
@@ -93,7 +93,7 @@ char	*get_next_line(int fd)
 	static char		*str[1024];
 	char			*line;
 
-	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, &line, 0) < 0)
+	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
 	if (!str[fd])
 		str[fd] = ft_strdup("");
