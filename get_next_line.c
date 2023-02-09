@@ -94,7 +94,7 @@ char	*get_next_line(int fd)
 	static char		*str;
 	char			*line;
 
-	if (fd < 0 || BUFFER_SIZE <= 0)
+	if (fd < 0)
 		return (NULL);
 	if (!str)
 		str = ft_strdup("");
